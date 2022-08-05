@@ -20,7 +20,6 @@ from dotenv import load_dotenv
 
 load_dotenv()  # this will load variables from .env.
 
-
 year=datetime.now().year
 # updates year in each page,
 
@@ -48,7 +47,6 @@ db = SQLAlchemy(app)
 # CONFIGURE TABLES
 
 Base = declarative_base()
-
 
 # ***************** TABLES ******************** #
 
