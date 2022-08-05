@@ -5,10 +5,9 @@ from datetime import datetime
 
 from sqlalchemy import Integer, String, Text, Table, ForeignKey, Column
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from wtforms import Form, StringField, validators, SubmitField, PasswordField, EmailField
 from flask_wtf import FlaskForm
@@ -46,12 +45,11 @@ db = SQLAlchemy(app)
 
 # CONFIGURE TABLES
 
-Base = declarative_base()
 
 # ***************** TABLES ******************** #
 
 
-class User(UserMixin, db.Model, Base):
+class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(Integer, primary_key=True)
     email = db.Column(String(100), unique=True)
