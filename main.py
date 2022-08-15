@@ -159,7 +159,7 @@ def register():
     form = RegistrationForm()
 
     if request.method == 'GET':
-        return render_template("register.html", form=form, year=year)
+        return render_template("authenticate.html", form=form, year=year)
     else:
         # else if user is registering,
         if form.validate_on_submit:
@@ -192,7 +192,7 @@ def register():
                 return redirect(url_for('get_all_posts', current_user=current_user, admin=False, year=year))
 
         else:
-            return render_template('register.html', form=form, year=year)
+            return render_template('authenticate.html', form=form, year=year)
             # if form is not validate, display again,
 
 
