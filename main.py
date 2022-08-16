@@ -1,3 +1,5 @@
+import sys
+
 from flask import Flask, render_template, redirect, url_for, flash, request, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor, CKEditorField
@@ -16,6 +18,8 @@ from flask_gravatar import Gravatar
 from functools import wraps
 import os
 from dotenv import load_dotenv
+import logging
+
 
 load_dotenv()  # this will load variables from .env.
 
@@ -26,6 +30,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] =os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+# log to identify any error while hosting the app on heroku,
 
 gravatar=Gravatar(app,
                   size=100,
