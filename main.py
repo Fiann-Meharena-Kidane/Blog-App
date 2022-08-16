@@ -129,7 +129,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-# this function prevents a user from accessing a route if he/she isnt admin,
+# this function prevents a user from accessing a route if he/she is not admin,
 def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -159,7 +159,7 @@ def register():
     form = RegistrationForm()
 
     if request.method == 'GET':
-        return render_template("authenticate.html", form=form, year=year)
+        return render_template("register.html", form=form, year=year)
     else:
         # else if user is registering,
         if form.validate_on_submit:
