@@ -7,3 +7,5 @@ Functions :
 2. Users can register using name, email and password, 
 3. Users can commit on blog posts 
 4. App stores user credentials on DB so that they just login once they visit again. 
+
+🔗 --> https://finan-blog.herokuapp.com/ 
